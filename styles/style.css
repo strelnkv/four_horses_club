@@ -68,7 +68,7 @@ header::after {
 }
 
 header::before {
-  background-image: url(./assets/images/image\ 23.png);
+  background-image: url(../assets/images/image\ 23.png);
   background-size: cover;
   background-position: center;
   mix-blend-mode: color-burn;
@@ -77,7 +77,7 @@ header::before {
 
 header::after {
   background-image:
-  /* url(/assets/images/Group.svg), */ url(./assets/images/Ellipse\ 6.svg);
+  /* url(/assets/images/Group.svg), */ url(../assets/images/Ellipse\ 6.svg);
   background-size: 634px;
   top: -50px;
   left: 676px;
@@ -284,8 +284,8 @@ main__table td:nth-child(1),
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  background-image: url(./assets/images/image\ 23.png),
-    url(./assets/images/Cooper\ Union\ Stamp\ Paper.png);
+  background-image: url(../assets/images/image\ 23.png),
+    url(../assets/images/Cooper\ Union\ Stamp\ Paper.png);
   background-blend-mode: color-burn;
   background-position: center;
   background-size: 300%;
