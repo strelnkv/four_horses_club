@@ -6,6 +6,7 @@
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --font-size-small: 16px;
+  --font-size-mobile-header: 36px;
 
   --line-height-base: 1.5;
 
@@ -25,6 +26,18 @@ p {
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-light);
 }
+h1 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+  line-height: 110%;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+}
 h2 {
   font-family: var(--color-text-primary);
   font-size: 54px;
@@ -32,32 +45,103 @@ h2 {
   text-transform: uppercase;
   font-weight: var(--font-weight-light);
 }
+@media (max-width: 768px) {
+  h2 {
+    font-size: 36px;
+  }
+}
 h3 {
   font-family: var(--font-primary);
   font-size: 36px;
   text-transform: uppercase;
   font-weight: var(--font-weight-light);
 }
+@media (max-width: 768px) {
+  h3 {
+    font-size: 28px;
+    font-weight: var(--font-weight-regular);
+  }
+}
+
+.parallax__container {
+  overflow-x: hidden;
+  height: 100vh;
+  perspective: 1px;
+  transform-style: preserve-3d;
+}
+.parallax-main {
+  background-color: #e9ded4;
+  z-index: -10;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+.parallax1 {
+  position: absolute;
+  right: -1000px;
+  top: -50%;
+  z-index: -10;
+  transform: translateZ(-3px) scale(4);
+  transform-origin: center;
+}
+.parallax2 {
+  position: absolute;
+  z-index: -9;
+  bottom: 250px;
+  right: -360px;
+  z-index: -9;
+  transform: translateZ(-2px) scale(3);
+  transform-origin: center;
+}
+
+.parallax3 {
+  position: absolute;
+  top: 0;
+  bottom: 28px;
+  right: 0;
+  left: 0;
+  background-image: url(../assets/images/city_group.png);
+  background-position: 50% 90%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -8;
+  transform: translateZ(-1px) scale(2);
+  transform-origin: center;
+}
+.parallax4 {
+  /* background-image: url(../assets/images/horse.png); */
+  transform: translateZ(-0.7px) scale(1.6);
+  position: absolute;
+  z-index: -7;
+  transform-origin: center;
+  background-repeat: no-repeat;
+  bottom: -210px;
+  right: -250px;
+}
+.parallax__color-burn {
+  background-image: url(../assets/images/image\ 23.png);
+  mix-blend-mode: color-burn;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
 .container {
   max-width: 1222px;
   margin: auto;
   width: 100%;
+  padding: 0 20px;
 }
-
-/* header */
-
-/* body {
-  perspective: 1px;
-  transform-style: preserve-3d;
-  overflow-y: scroll;
-  overflow-x: hidden;
-} */
-
+@media (max-width: 768px) {
+  .container {
+    max-width: 375px;
+    padding: 0 20px;
+  }
+}
 header {
   position: relative;
+  /* background-color: #e9ded4; */
   width: 100%;
   height: 100vh;
-  background-color: #e9ded4;
   padding-top: 26px;
   overflow: hidden;
   z-index: 1;
@@ -67,48 +151,19 @@ header {
   overflow-x: hidden;
 }
 
-header::before,
-header::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Помещаем изображения ниже фона header */
-}
-
-header::before {
-  background-image: url(../assets/images/image\ 23.png);
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: color-burn;
-  z-index: -1;
-}
-
-/* header::after {
-  background-image:
-  url(../assets/images/Ellipse\ 6.svg);
-  background-size: 634px;
-  top: -50px;
-  left: 676px;
-  background-repeat: no-repeat;
-  z-index: -2;
-} */
 .header__logo {
   width: 245px;
+}
+@media (max-width: 768px) {
+  .header__logo {
+    max-width: 213px;
+  }
 }
 .header__main {
   max-width: 542px;
   padding-top: 62px;
 }
-h1 {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-large);
-  font-weight: var(--font-weight-regular);
-  text-transform: uppercase;
-  line-height: 110%;
-}
+
 .centered-text {
   display: flex;
   flex-direction: column;
@@ -123,27 +178,80 @@ h1 {
   line-height: 130%;
   font-size: 18px;
 }
+@media (max-width: 768px) {
+  .header__paragraph {
+    font-size: 18px;
+    text-align: left;
+  }
+}
 .header__btns {
   display: flex;
   justify-content: space-between;
   padding-top: 40px;
 }
+@media (max-width: 768px) {
+  .header__btns {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+}
 .header__btn {
   width: 263px;
   padding: 15px 49px;
-  border: 2px solid #1f1f1f;
+
   border-radius: 66px;
   font-family: var(--font-secondary);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+@media (max-width: 768px) {
+  .header__btn {
+    width: 335px;
+    height: 47px;
+  }
+}
+
 .support-btn {
   background-color: #1f1f1f;
-  color: #ffffff;
+
+  border: none;
+  p {
+    color: #ffffff;
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .support-btn {
+    p {
+      white-space: nowrap;
+    }
+  }
+}
+.support-btn:hover {
+  background-color: #fbce51;
+  color: #1f1f1f;
 }
 .details-btn {
   background-color: hsla(0, 100%, 50%, 0);
+  border: 2px solid #1f1f1f;
+  p {
+    font-size: 16px;
+  }
+}
+.details-btn:hover {
+  background-color: #1f1f1f;
+  color: white;
+}
+@media (max-width: 768px) {
+  .details-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+  }
 }
 .marquee-container {
   width: 100%;
@@ -179,12 +287,15 @@ h1 {
 }
 
 /* main */
+.all-over-container {
+  background-color: #fff;
+}
 
 .main {
   padding-top: 80px;
+  background-color: #fff;
 }
-.main-first-block {
-}
+
 .main__header {
   max-width: 764px;
 }
@@ -200,12 +311,41 @@ h1 {
   flex: 1 1 400px;
   min-width: 300px;
 }
-.h3__red {
-  color: #f54932;
-}
 .main__chess-players {
   max-width: 394px;
 }
+
+.main-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .main-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "text1"
+      "image"
+      "text2";
+    gap: 24px;
+  }
+  .main__header:nth-child(1) {
+    grid-area: text1;
+  }
+  .main__header:nth-child(2) {
+    grid-area: text2;
+  }
+  .main__chess-players {
+    grid-area: image;
+    max-width: 335px;
+  }
+  .main__header__container {
+    display: none;
+  }
+}
+.h3__red {
+  color: #f54932;
+}
+
 .main__details__container {
   padding-top: 17px;
   gap: 44px;
@@ -215,6 +355,17 @@ h1 {
 .main__chess-player-collage {
   max-width: 474px;
 }
+@media (max-width: 768px) {
+  .main__details__container {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 34px;
+  }
+  .main__chess-player-collage {
+    max-width: 374px;
+  }
+}
+
 .main__details__header {
   padding-top: 47px;
   max-width: 704px;
@@ -259,6 +410,32 @@ main__table td:nth-child(1),
 .main__table tr:last-child th {
   border-bottom: none;
 }
+
+.main__table-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .main__table-mobile {
+    display: block;
+    border-collapse: collapse;
+    width: 100%;
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-medium);
+    td {
+      border-bottom: 2px solid #d0d0d0;
+      padding: 16px 50px 16px 0;
+      line-height: 1.8;
+      span {
+        font-weight: 600;
+        margin-top: 12px;
+      }
+    }
+  }
+  .main__table {
+    display: none;
+  }
+}
+
 .paragraph__blue {
   padding-top: 25px;
   color: #3057a2;
@@ -275,7 +452,10 @@ main__table td:nth-child(1),
   bottom: 10px;
   left: 301px;
 }
-
+@media (max-width: 768px) {
+  .main__stages-header {
+  }
+}
 /* grid table */
 .grid-table {
   display: grid;
@@ -306,7 +486,24 @@ main__table td:nth-child(1),
 }
 
 .grid-cell-span-2cols {
-  grid-column: span 2; /* Объединение ячейки на 2 колонки вправо */
+  grid-column: span 2;
+}
+
+@media (min-width: 375px) {
+  .grid-table {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+  }
+  .grid-cell {
+    min-width: 100%;
+  }
+
+  .circle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
 }
 .circle {
   width: 36px; /* Размер кружка */
@@ -342,10 +539,43 @@ main__table td:nth-child(1),
   padding-top: 200px;
   overflow: hidden;
 }
+.main__members__h-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.circle-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background-color: #313131;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.left-arrow,
+.right-arrow {
+  color: #000;
+}
+
+.circle-button:hover {
+  background-color: #fbce51;
+}
+.main__members__btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    padding: 14px;
+  }
+}
 .main__members__carousel {
   padding-top: 60px;
   display: flex;
-  justify-content: space-between;
 
   min-width: 205%;
 }
@@ -379,6 +609,11 @@ main__table td:nth-child(1),
   color: #3057a2;
   cursor: pointer;
 }
+.member-more-btn:hover {
+  background-color: #3057a2;
+  border: none;
+  color: white;
+}
 footer {
   background-color: #e9ded4;
   margin-top: 140px;
@@ -391,9 +626,9 @@ footer {
   padding-bottom: 72px;
   font-size: var(--font-size-small);
 }
-.parallax {
+/* .parallax {
   height: 100vh;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   position: absolute;
   perspective: 1px;
 }
@@ -406,7 +641,7 @@ footer {
   transform-origin: center;
 }
 .parallax2 {
-  /* position: absolute; */
+  position: absolute;
   z-index: -9;
   top: 170px;
   right: 190px;
@@ -416,10 +651,48 @@ footer {
 }
 
 .parallax3 {
-  /* position: absolute; */
+  position: absolute;
   top: 259px;
   right: 28px;
   z-index: -8;
   transform: translateZ(-1px) scale(2);
   transform-origin: center;
+} */
+/* Основа для параллакс эффекта */
+/* .parallax {
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
 }
+
+/* Слои параллакса */
+/* .parallax > div { */
+/* position: relative;
+  background-position: center;
+  background-size: cover;
+  transform-style: preserve-3d;
+} */
+
+/* .parallax1,
+.parallax2,
+.parallax3 {
+  height: 500px; /* или ваша предпочтительная высота */
+/* } */
+
+/* .parallax1 { */
+/* background-image: url('./assets/images/Ellipse 6.svg'); */
+/* transform: translateZ(-1px) scale(2);
+} */
+
+/* .parallax2 .parallax_chess1 {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateZ(-0.5px) scale(1.5);
+} */
+
+/* .parallax3 {
+  /* background-image: url('./assets/images/city_group.png'); */
+/* transform: translateZ(-2px) scale(3);
+}  */
