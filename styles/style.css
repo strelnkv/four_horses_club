@@ -125,6 +125,32 @@ h3 {
   width: 100%;
   position: absolute;
 }
+
+@media (max-width: 768px) {
+  .parallax1 {
+    right: -170px;
+    top: 73%;
+    transform: translateZ(-3px) scale(2);
+  }
+  .parallax2 {
+    bottom: -347px;
+    right: 80px;
+    transform: translateZ(-2px) scale(1.8);
+  }
+  .parallax3 {
+    transform: translateZ(-1px) scale(1.2);
+    top: 0;
+    bottom: -312px;
+    right: -230px;
+    left: -1030px;
+    background-size: auto;
+  }
+  .parallax4 {
+    transform: translateZ(-0.7px) scale(1);
+    bottom: -260px;
+    right: -119px;
+  }
+}
 .container {
   max-width: 1222px;
   margin: auto;
@@ -245,7 +271,9 @@ header {
 }
 .details-btn:hover {
   background-color: #1f1f1f;
-  color: white;
+  p {
+    color: white;
+  }
 }
 @media (max-width: 768px) {
   .details-btn {
@@ -287,9 +315,6 @@ header {
 }
 
 /* main */
-.all-over-container {
-  background-color: #fff;
-}
 
 .main {
   padding-top: 80px;
@@ -453,7 +478,10 @@ main__table td:nth-child(1),
   left: 301px;
 }
 @media (max-width: 768px) {
-  .main__stages-header {
+  .main__stages-p-relative {
+    display: block;
+    padding-top: 12px;
+    position: static;
   }
 }
 /* grid table */
@@ -489,22 +517,6 @@ main__table td:nth-child(1),
   grid-column: span 2;
 }
 
-@media (min-width: 375px) {
-  .grid-table {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-  }
-  .grid-cell {
-    min-width: 100%;
-  }
-
-  .circle {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-}
 .circle {
   width: 36px; /* Размер кружка */
   height: 36px; /* Размер кружка */
@@ -533,16 +545,10 @@ main__table td:nth-child(1),
   bottom: 0;
   right: -64px;
 }
-
-/*участники*/
-.main__members {
-  padding-top: 200px;
-  overflow: hidden;
-}
-.main__members__h-btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media (max-width: 768px) {
+  .grid-table {
+    display: none;
+  }
 }
 .circle-button {
   display: inline-flex;
@@ -565,12 +571,102 @@ main__table td:nth-child(1),
 .circle-button:hover {
   background-color: #fbce51;
 }
+.stages__mobile {
+  display: none;
+}
+.stages__mobile__buttons {
+  display: none;
+}
+@media (max-width: 768px) {
+  .stages__mobile {
+    display: block;
+    width: 335px;
+    height: 300px;
+    background-image: url(../assets/images/image\ 23.png),
+      url(../assets/images/Cooper\ Union\ Stamp\ Paper.png);
+    background-blend-mode: color-burn;
+    background-position: center;
+    background-size: 300%;
+    margin-top: 148px;
+    position: relative;
+  }
+  .stages {
+    display: none;
+  }
+  .stages.active {
+    display: flex;
+    flex-direction: column;
+    padding: 62px 26px 34px 20px;
+    gap: 28px;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+  .mobile-stages-p {
+    font-size: 18px;
+  }
+  .circle {
+    padding: 11px;
+  }
+  .plane-mobile {
+    position: absolute;
+    top: -126px;
+    left: 14px;
+    width: 100%;
+  }
+  .stages__mobile__buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 28px;
+    gap: 16px;
+  }
+  .navigation-dots {
+    pointer-events: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot.active {
+    background-color: #313131;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+  }
+  .circle-button-disabled {
+    background-color: #d6d6d6;
+    pointer-events: none;
+  }
+}
+
+/*участники*/
+.main__members {
+  padding-top: 200px;
+  overflow: hidden;
+}
+.main__members__h-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .main__members__btns {
   display: flex;
   align-items: center;
   justify-content: space-between;
   p {
     padding: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .main__members__btns {
+    display: none;
   }
 }
 .main__members__carousel {
@@ -584,6 +680,27 @@ main__table td:nth-child(1),
   flex: 1;
   flex-direction: column;
   align-items: center;
+}
+.carousel__buttons {
+  display: none;
+}
+@media (max-width: 768px) {
+  .carousel-member.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+  }
+  .carousel-member {
+    display: none;
+  }
+  .carousel__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding-top: 40px;
+  }
 }
 .member-img {
   max-width: 320px;
@@ -626,73 +743,3 @@ footer {
   padding-bottom: 72px;
   font-size: var(--font-size-small);
 }
-/* .parallax {
-  height: 100vh;
-  overflow-x: hidden;
-  position: absolute;
-  perspective: 1px;
-}
-.parallax1 {
-  position: absolute;
-  right: 70px;
-  top: -50%;
-  z-index: -10;
-  transform: translateZ(-3px) scale(4);
-  transform-origin: center;
-}
-.parallax2 {
-  position: absolute;
-  z-index: -9;
-  top: 170px;
-  right: 190px;
-  z-index: -9;
-  transform: translateZ(-2px) scale(1);
-  transform-origin: center;
-}
-
-.parallax3 {
-  position: absolute;
-  top: 259px;
-  right: 28px;
-  z-index: -8;
-  transform: translateZ(-1px) scale(2);
-  transform-origin: center;
-} */
-/* Основа для параллакс эффекта */
-/* .parallax {
-  overflow-x: hidden;
-  overflow-y: auto;
-  perspective: 1px;
-}
-
-/* Слои параллакса */
-/* .parallax > div { */
-/* position: relative;
-  background-position: center;
-  background-size: cover;
-  transform-style: preserve-3d;
-} */
-
-/* .parallax1,
-.parallax2,
-.parallax3 {
-  height: 500px; /* или ваша предпочтительная высота */
-/* } */
-
-/* .parallax1 { */
-/* background-image: url('./assets/images/Ellipse 6.svg'); */
-/* transform: translateZ(-1px) scale(2);
-} */
-
-/* .parallax2 .parallax_chess1 {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateZ(-0.5px) scale(1.5);
-} */
-
-/* .parallax3 {
-  /* background-image: url('./assets/images/city_group.png'); */
-/* transform: translateZ(-2px) scale(3);
-}  */
